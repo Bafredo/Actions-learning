@@ -3,6 +3,9 @@ echo "Starting deployment..."
 # Add your deployment commands here
 
 # go to app directory
+
+mkdir -p /app
+
 cd /app
 
 # pull the latest changes from the repository
