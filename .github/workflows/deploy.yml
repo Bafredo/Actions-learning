@@ -1,0 +1,19 @@
+name : Deploy to VM
+
+on:
+  push:
+    branches:
+      -main
+
+jobs:
+  deploy:
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: SSH to VM and deploy
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USERNAME }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: ./github/workflows/deploy.sh

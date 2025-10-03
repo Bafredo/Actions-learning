@@ -1,0 +1,26 @@
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - VITE_API_HOST=http://localhost/api/
+    depends_on:
+      - backend
+    networks:
+      - conn
+  
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    expose:
+      - 5000
+    networks:
+      - conn
+networks:
+  conn:
+    driver: bridge
