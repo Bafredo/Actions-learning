@@ -7,8 +7,7 @@ function App() {
 
   useEffect(() => {
     const apiHost = import.meta.env.VITE_API_HOST
-    console.log(apiHost)
-    console.log(" above is the apiHost")
+    
 
   fetch(`${apiHost}/api/projects`)
       .then((res) => {
